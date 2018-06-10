@@ -2,18 +2,27 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>demo</title>
+    <title>a simple float demo</title>
   </head>
   <body>
-    <h1>demo</h1>
-    <!-- All of the Node.js APIs are available in this renderer process. -->
-    We are using Node.js <script>document.write(process.versions.node)</script>,
-    Chromium <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+    <input type="text" id="input-num" />
+    <button id="parse-btn">parse</button>
+    <div id="input-display"></div>
+    <div id="parsed-display">
+    </div>
 
     <script>
-      // You can also require other files to run in this process
-      // require('./renderer.js')
+      const input = document.getElementById('input-num')
+      const button = document.getElementById('parse-btn')
+      const inputDiv = document.getElementById('input-display')
+      const outputDiv = document.getElementById('parsed-display')
+      button.addEventListener('click', function() {
+        const inputStr = input.value
+        inputDiv.innerHTML = inputStr
+        let parseNum = Number(inputStr)
+        let doubleNum = parseNum.toString(2)
+        outputDiv.innerHTML = doubleNum
+      }, false)
     </script>
   </body>
 </html>
